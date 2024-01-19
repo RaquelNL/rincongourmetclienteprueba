@@ -1,0 +1,69 @@
+<div *ngIf="status!=null">
+    <div class="d-flex justify-content-center my-3">
+        <div class="alert alert-danger" role="alert">
+            {{status!.error.message}} - {{status!.message}}
+        </div>
+    </div>
+</div>
+
+<div *ngIf="status==null">
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Propiedad</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{oUser.id}}</td>
+            </tr>
+            <tr>
+                <th>Usuario</th>
+                <td>{{oUser.usuario}}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{oUser.nombre}}</td>
+            </tr>
+            <tr>
+                <th>Primer Apellido</th>
+                <td>{{oUser.primer_apellido}}</td>
+            </tr>
+            <tr>
+                <th>2 Apellido</th>
+                <td>{{oUser.segundo_apellido}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{oUser.email}}</td>
+            </tr>
+            <tr>
+                <th>Rol</th>
+                <td>
+                    <span *ngIf="oUser.rol==false">Administrador</span>
+                    <span *ngIf="oUser.rol==true">Usuario</span>
+                </td>
+            </tr>
+            <tr>
+                <th>Foto</th>
+                <td>{{oUser.foto}}</td>
+            </tr>
+            <tr>
+                <th>Recetas</th>
+                <td>
+                    <a [routerLink]="['/admin','recetas','plist','byuser',oUser.id]"
+                        *ngIf="oUser.recetas>0">{{oUser.recetas}}</a>
+                    <span *ngIf="oUser.recetas==0">0</span>
+                </td>
+            </tr>
+            <tr>
+                <th>Comentarios</th>
+                <td>
+                    <a [routerLink]="['/admin','comentarios','plist','byuser',oUser.id]"
+                        *ngIf="oUser.comentarios>0">{{oUser.comentarios}}</a>
+                    <span *ngIf="oUser.comentarios==0">0</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

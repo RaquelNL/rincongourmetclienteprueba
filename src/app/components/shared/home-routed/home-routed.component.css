@@ -1,0 +1,66 @@
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    max-width: 100% !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    letter-spacing: 60px;
+    word-spacing: 190px;
+
+    font-size: 60px;
+}
+
+.threads {
+    padding: 5px;
+    background-color: paleturquoise;
+}
+
+.replies {
+    padding: 5px;
+    background-color: seashell;
+}
+
+.info {
+    padding: 5px;
+    background-color: lightsteelblue;
+}
+
+
+    body {
+      padding-top: 0px; /* Asegura que el navbar no cubra la parte superior del contenido */
+      background-color: lightgray;
+    }
+
+    .jumbotron {
+      text-align: center;
+      margin-bottom: 20px; /* Elimina el espacio entre el jumbotron y las columnas */
+      background-color: lightslategray; /* Color de fondo verde */
+      color: white; /* Texto blanco */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+      padding:20px;
+    }
+
+    .card {
+      height: 450px;
+      margin-bottom: 20px;
+      transition: transform 0.2s, box-shadow 0.2s; /* Agrega transiciones suaves */
+      border: 1px solid #17a2b8; /* Borde azul claro */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    }
+
+    .card:hover {
+      transform: scale(1.05); /* Agranda la tarjeta al pasar el mouse sobre ella */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse sobre ella */
+    }
+
+    .card-title {
+      color: #17a2b8; /* Color azul claro para el título de la tarjeta */
+    }
+  

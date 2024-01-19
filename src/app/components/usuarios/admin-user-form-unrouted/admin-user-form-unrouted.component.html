@@ -1,0 +1,91 @@
+<div *ngIf="status!=null">
+    <div class="d-flex justify-content-center my-3">
+      <div class="alert alert-danger" role="alert">
+        {{status!.error.message}} - {{status!.message}}
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="status==null">
+    <div class="col-12">
+      <div class="d-flex justify-content-center my-3">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()"></form>
+          <div class="form-group">
+            <mat-form-field *ngIf="operation=='EDIT'">
+              <mat-label>ID:</mat-label>
+              <input matInput formControlnombre="id" placeholder="ID" required readonly>
+              <mat-hint align="end">(No se puede cambiar este número)</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Usuario:</mat-label>
+              <input matInput formControlnombre="usuario" placeholder="Usuario" required>
+              <mat-hint align="end">(de 6 a 15 alfanuméricos)</mat-hint>
+              <mat-error *ngIf="hasError('usuario', 'required')">El usuario es requerido</mat-error>
+              <mat-error *ngIf="hasError('usuario', 'minlength')">Más largaria requerida</mat-error>
+              <mat-error *ngIf="hasError('usuario', 'maxlength')">Límite excedido</mat-error>
+              <mat-error *ngIf="hasError('usuario', 'pattern')">Caracteres no aceptados</mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field [style.width.px]=350>
+              <mat-label>Nombre:</mat-label>
+              <input matInput formControlnombre="nombre" placeholder="Nombre" required>
+              <mat-hint align="end">(de 3 a 255 caracteres de largo)</mat-hint>
+              <mat-error *ngIf="hasError('nombre', 'required')">El nombre es requerido</mat-error>
+              <mat-error *ngIf="hasError('nombre', 'minlength')">Más largaria requerida</mat-error>
+              <mat-error *ngIf="hasError('nombre', 'maxlength')">Límite excedido</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field [style.width.px]=350>
+              <mat-label>Primer Apellido:</mat-label>
+              <input matInput formControlnombre="primer_apellido" placeholder="Primer Apellido" required>
+              <mat-hint align="end">(de 3 a 255 caracteres de largo)</mat-hint>
+              <mat-error *ngIf="hasError('primer_apellido', 'required')">El primer apellido es requerido</mat-error>
+              <mat-error *ngIf="hasError('primer_apellido', 'minlength')">Más largaria requerida</mat-error>
+              <mat-error *ngIf="hasError('primer_apellido', 'maxlength')">Límite excedido</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field [style.width.px]=350>
+              <mat-label>Segundo Apellido:</mat-label>
+              <input matInput formControlnombre="segundo_apellido" placeholder="Segundo Apellido">
+              <mat-hint align="end">(de 3 a 255 caracteres de largo)</mat-hint>
+              <mat-error *ngIf="hasError('segundo_apellido', 'required')">El segundo apellido es requerido</mat-error>
+              <mat-error *ngIf="hasError('segundo_apellido', 'minlength')">Más largaria requerida</mat-error>
+              <mat-error *ngIf="hasError('segundo_apellido', 'maxlength')">Límite excedido</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Email:</mat-label>
+              <input matInput formControlnombre="email" placeholder="Email" required>
+              <mat-error *ngIf="hasError('email', 'email')">El Email no es válido</mat-error>
+            </mat-form-field>
+          </div>
+          
+  
+          <mat-radio-group aria-label="Type of user" formControlnombre="role" required>
+            <mat-radio-button [value]="true">Administrador</mat-radio-button>
+            <mat-radio-button [value]="false">Usuario</mat-radio-button>
+            <mat-error *ngIf="hasError('role', 'required')">El tipo de usuario es requerido</mat-error>
+          </mat-radio-group>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Foto:</mat-label>
+              <input matInput formControlnombre="foto" placeholder="Foto" required>
+              <mat-error *ngIf="hasError('foto', 'foto')">La foto no es válida</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="text-center mt-5">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Guardar usuario</button>
+          </div>
+      </div>
+    </div>
+  </div>
